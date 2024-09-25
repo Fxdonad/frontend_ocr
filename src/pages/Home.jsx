@@ -2,6 +2,10 @@ import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import videoSource from "../assets/videos/videobackground.mp4";
+import Img1 from "../assets/OCR_Offline-1400x602.png";
+import Img2 from "../assets/QuickScan.png";
+import Img3 from "../assets/OCR-Software.jpg";
+
 import { AiOutlineCheckCircle, AiOutlineCloudUpload, AiOutlineRocket } from 'react-icons/ai';
 import { FaRegSmileBeam, FaUserShield, FaCogs } from 'react-icons/fa';
 import Slider from "react-slick"; // Import Slider từ react-slick
@@ -64,7 +68,7 @@ const Home = () => {
                     {/* Slide 1 */}
                     <div>
                       <img
-                        src="src/assets/OCR_Offline-1400x602.png"
+                        src={Img1}
                         alt="Minh họa OCR 1"
                         className="object-cover w-full h-auto rounded-lg shadow-lg"
                       />
@@ -72,7 +76,7 @@ const Home = () => {
                     {/* Slide 2 */}
                     <div>
                       <img
-                        src="src/assets/QuickScan.png"
+                        src={Img2}
                         alt="Minh họa OCR 2"
                         className="object-cover w-full h-auto rounded-lg shadow-lg"
                       />
@@ -80,7 +84,7 @@ const Home = () => {
                     {/* Slide 3 */}
                     <div>
                       <img
-                        src="src/assets/OCR-Software.jpg"
+                        src={Img3}
                         alt="Minh họa OCR 3"
                         className="object-cover w-full h-auto rounded-lg shadow-lg"
                       />
