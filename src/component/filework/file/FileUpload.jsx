@@ -72,7 +72,7 @@ const FileUpload = () => {
         setUploadSuccess(null);
 
         try {
-            const response = await fetch("http://localhost:8081/api/auth/user/files/upload", {
+            const response = await fetch("http://103.145.63.232:8081/api/auth/user/files/upload", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

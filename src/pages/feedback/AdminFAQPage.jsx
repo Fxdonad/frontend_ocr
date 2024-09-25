@@ -8,7 +8,7 @@ const AdminFAQPage = () => {
     const [questions, setQuestions] = useState([]);
     const [filteredQuestions, setFilteredQuestions] = useState([]);
     const [searchText, setSearchText] = useState("");
-    const apiUrl = "http://localhost:8081/api";
+    const apiUrl = "http://103.145.63.232:8081/api";
 
     useEffect(() => {
         fetchQuestions();

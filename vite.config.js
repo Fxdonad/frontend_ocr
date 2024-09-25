@@ -15,7 +15,7 @@ export default defineConfig({
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8081',
+        target: 'http://103.145.63.232:8081',
         changeOrigin: true,
         secure: false,
       },

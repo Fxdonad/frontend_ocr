@@ -19,7 +19,7 @@ const FileUploadUpdate = () => {
         const fetchFileList = async () => {
             const token = sessionStorage.getItem("authToken");
             try {
-                const response = await axios.get('http://localhost:8081/api/auth/user/files/list', {
+                const response = await axios.get('http://103.145.63.232:8081/api/auth/user/files/list', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -61,7 +61,7 @@ const FileUploadUpdate = () => {
                 formData.append('file', selectedFile);
 
                 await axios.post(
-                    'http://localhost:8081/api/auth/user/files/upload',
+                    'http://103.145.63.232:8081/api/auth/user/files/upload',
                     formData,
                     {
                         headers: {
@@ -76,7 +76,7 @@ const FileUploadUpdate = () => {
 
             // Update properties of the file
             const response = await axios.post(
-                `http://localhost:8081/api/pdf/updateProperties?fileName=${encodeURIComponent(fileName)}&title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}&subject=${encodeURIComponent(subject)}&keywords=${encodeURIComponent(keywords)}`,
+                `http://103.145.63.232:8081/api/pdf/updateProperties?fileName=${encodeURIComponent(fileName)}&title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}&subject=${encodeURIComponent(subject)}&keywords=${encodeURIComponent(keywords)}`,
                 {},
                 {
                     headers: {
@@ -138,7 +138,7 @@ const FileUploadUpdate = () => {
                 className="hidden"
                 onChange={handleFileChange}
             />
-            <p className="text-center text-xl font-semibold">Click to select a file or drag and drop here</p>
+            <p className="text-xl font-semibold text-center">Click to select a file or drag and drop here</p>
             <p className="mt-4 text-center">Select a <strong>PDF</strong> file to update its properties</p>
 
             <select
@@ -150,7 +150,7 @@ const FileUploadUpdate = () => {
                     setButtonText('Update Properties'); // Change button text to "Update Properties"
                     setMessage(`Selected file: ${file.fileName}`);
                 }}
-                className="mt-4 px-4 py-2 border rounded bg-white text-gray-700 focus:outline-none focus:border-blue-500 hover:bg-gray-100"
+                className="px-4 py-2 mt-4 text-gray-700 bg-white border rounded focus:outline-none focus:border-blue-500 hover:bg-gray-100"
                 onClick={(e) => e.stopPropagation()}
             >
                 <option value="">-- Select a file --</option>
@@ -167,7 +167,7 @@ const FileUploadUpdate = () => {
                     placeholder="Title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()}
                 />
                 <input
@@ -175,7 +175,7 @@ const FileUploadUpdate = () => {
                     placeholder="Author"
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()}
                 />
                 <input
@@ -183,7 +183,7 @@ const FileUploadUpdate = () => {
                     placeholder="Subject"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()}
                 />
                 <input
@@ -191,24 +191,24 @@ const FileUploadUpdate = () => {
                     placeholder="Keywords"
                     value={keywords}
                     onChange={(e) => setKeywords(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()}
                 />
             </div>
             {message && (
-                <div className="mt-4 text-center text-green-600 font-semibold">
+                <div className="mt-4 font-semibold text-center text-green-600">
                     {message}
                 </div>
             )}
             <button
                 onClick={handleFileUpload}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+                className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-500 rounded hover:bg-blue-700"
             >
                 {buttonText}
             </button>
             <div className="mt-2 text-sm text-center">
                 Supported formats:
-                <span className="inline-block bg-red-500 text-white px-2 py-1 rounded ml-1 transition duration-300 hover:bg-red-600">PDF</span>
+                <span className="inline-block px-2 py-1 ml-1 text-white transition duration-300 bg-red-500 rounded hover:bg-red-600">PDF</span>
             </div>
         </div>
     );

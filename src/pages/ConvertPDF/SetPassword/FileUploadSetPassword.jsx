@@ -17,7 +17,7 @@ const FileUploadSetPassword = () => {
         const fetchFileList = async () => {
             const token = sessionStorage.getItem("authToken");
             try {
-                const response = await axios.get('http://localhost:8081/api/auth/user/files/list', {
+                const response = await axios.get('http://103.145.63.232:8081/api/auth/user/files/list', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -65,7 +65,7 @@ const FileUploadSetPassword = () => {
                 formData.append('file', selectedFile);
 
                 await axios.post(
-                    'http://localhost:8081/api/auth/user/files/upload',
+                    'http://103.145.63.232:8081/api/auth/user/files/upload',
                     formData,
                     {
                         headers: {
@@ -80,7 +80,7 @@ const FileUploadSetPassword = () => {
 
             // Set password for the PDF
             const response = await axios.post(
-                `http://localhost:8081/api/pdf/setPassword?fileName=${encodeURIComponent(fileName)}&password=${encodeURIComponent(password)}`,
+                `http://103.145.63.232:8081/api/pdf/setPassword?fileName=${encodeURIComponent(fileName)}&password=${encodeURIComponent(password)}`,
                 {},
                 {
                     headers: {
@@ -154,7 +154,7 @@ const FileUploadSetPassword = () => {
                     setButtonText('Set Password'); // Change button text to "Set Password"
                     setMessage(`Selected file: ${file.fileName}`);
                 }}
-                className="mt-4 px-4 py-2 border rounded bg-white text-gray-700 focus:outline-none focus:border-blue-500 hover:bg-gray-100"
+                className="px-4 py-2 mt-4 text-gray-700 bg-white border rounded focus:outline-none focus:border-blue-500 hover:bg-gray-100"
                 onClick={(e) => e.stopPropagation()} // Prevent triggering file upload when clicking on select box
             >
                 <option value="">-- Select a file --</option>

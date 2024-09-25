@@ -30,7 +30,7 @@ const AdminUserListPage = () => {
             throw new Error("No token found");
         }
 
-        const response = await axios.get("http://localhost:8081/api/admin/users", {
+        const response = await axios.get("http://103.145.63.232:8081/api/admin/users", {
             headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,

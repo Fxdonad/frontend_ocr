@@ -21,7 +21,7 @@ const FileUploadSetFontAndSize = () => {
         const fetchFileList = async () => {
             const token = sessionStorage.getItem("authToken");
             try {
-                const response = await axios.get('http://localhost:8081/api/auth/user/files/list', {
+                const response = await axios.get('http://103.145.63.232:8081/api/auth/user/files/list', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -75,7 +75,7 @@ const FileUploadSetFontAndSize = () => {
                 formData.append('file', selectedFile);
 
                 await axios.post(
-                    'http://localhost:8081/api/auth/user/files/upload',
+                    'http://103.145.63.232:8081/api/auth/user/files/upload',
                     formData,
                     {
                         headers: {
@@ -90,7 +90,7 @@ const FileUploadSetFontAndSize = () => {
 
             // Set font size for the PDF
             const response = await axios.post(
-                `http://localhost:8081/api/pdf/setFontAndSize?fileName=${encodeURIComponent(fileName)}&text=${encodeURIComponent(text)}&fontName=${encodeURIComponent(fontName)}&x=${x}&y=${y}&fontSize=${fontSize}`,
+                `http://103.145.63.232:8081/api/pdf/setFontAndSize?fileName=${encodeURIComponent(fileName)}&text=${encodeURIComponent(text)}&fontName=${encodeURIComponent(fontName)}&x=${x}&y=${y}&fontSize=${fontSize}`,
                 {},
                 {
                     headers: {
@@ -153,7 +153,7 @@ const FileUploadSetFontAndSize = () => {
                 className="hidden"
                 onChange={handleFileChange}
             />
-            <p className="text-center text-xl font-semibold">Click to select a file or drag and drop here</p>
+            <p className="text-xl font-semibold text-center">Click to select a file or drag and drop here</p>
             <p className="mt-4 text-center">Select a <strong>PDF</strong> file to set font and size</p>
 
             <select
@@ -165,7 +165,7 @@ const FileUploadSetFontAndSize = () => {
                     setButtonText('Set Font Size'); // Change button text to "Set Font Size"
                     setMessage(`Selected file: ${file.fileName}`);
                 }}
-                className="mt-4 px-4 py-2 border rounded bg-white text-gray-700 focus:outline-none focus:border-blue-500 hover:bg-gray-100"
+                className="px-4 py-2 mt-4 text-gray-700 bg-white border rounded focus:outline-none focus:border-blue-500 hover:bg-gray-100"
                 onClick={(e) => e.stopPropagation()} // Prevent event propagation from triggering file upload
             >
                 <option value="">-- Select a file --</option>
@@ -176,13 +176,13 @@ const FileUploadSetFontAndSize = () => {
                 ))}
             </select>
 
-            <div className="mt-4 w-full max-w-md">
+            <div className="w-full max-w-md mt-4">
                 <input
                     type="text"
                     placeholder="Text to Add"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 />
                 <input
@@ -190,7 +190,7 @@ const FileUploadSetFontAndSize = () => {
                     placeholder="Font Name"
                     value={fontName}
                     onChange={(e) => setFontName(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 />
                 <input
@@ -198,7 +198,7 @@ const FileUploadSetFontAndSize = () => {
                     placeholder="X Coordinate"
                     value={x}
                     onChange={(e) => setX(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 />
                 <input
@@ -206,7 +206,7 @@ const FileUploadSetFontAndSize = () => {
                     placeholder="Y Coordinate"
                     value={y}
                     onChange={(e) => setY(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 />
                 <input
@@ -214,24 +214,24 @@ const FileUploadSetFontAndSize = () => {
                     placeholder="Font Size"
                     value={fontSize}
                     onChange={(e) => setFontSize(e.target.value)}
-                    className="mb-2 px-2 py-1 border rounded w-full"
+                    className="w-full px-2 py-1 mb-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 />
             </div>
             {message && (
-                <div className="mt-4 text-center text-green-600 font-semibold">
+                <div className="mt-4 font-semibold text-center text-green-600">
                     {message}
                 </div>
             )}
             <button
                 onClick={handleFileUploadOrSetFontSize}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+                className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-500 rounded hover:bg-blue-700"
             >
                 {buttonText}
             </button>
             <div className="mt-2 text-sm text-center">
                 Supported formats:
-                <span className="inline-block bg-red-500 text-white px-2 py-1 rounded ml-1 transition duration-300 hover:bg-red-600">PDF</span>
+                <span className="inline-block px-2 py-1 ml-1 text-white transition duration-300 bg-red-500 rounded hover:bg-red-600">PDF</span>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     const handleForgotPassword = async () => {
         setLoading(true);
         try {
-            const response = await axios.post(`http://localhost:8081/api/auth/forgot-password?email=${email}`);
+            const response = await axios.post(`http://103.145.63.232:8081/api/auth/forgot-password?email=${email}`);
             if (response.status === 200) {
                 setMessage('Mật khẩu tạm thời đã được gửi đến email của bạn.');
                 setTimeout(() => {

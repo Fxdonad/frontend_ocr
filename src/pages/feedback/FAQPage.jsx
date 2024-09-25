@@ -10,7 +10,7 @@ const FAQPage = () => {
     const [questionText, setQuestionText] = useState("");
     const [searchText, setSearchText] = useState("");
     const [currentUserID, setCurrentUserID] = useState("");
-    const apiUrl = "http://localhost:8081/api";
+    const apiUrl = "http://103.145.63.232:8081/api";
 
     useEffect(() => {
         fetchQuestions();

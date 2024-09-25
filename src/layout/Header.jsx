@@ -44,7 +44,7 @@ const Header = () => {
 
   const fetchUserRole = async (token) => {
     try {
-      const response = await fetch("http://localhost:8081/api/auth/user-details", {
+      const response = await fetch("http://103.145.63.232:8081/api/auth/user-details", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

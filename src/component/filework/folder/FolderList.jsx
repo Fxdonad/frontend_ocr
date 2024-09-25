@@ -22,7 +22,7 @@ const FolderList = () => {
             setError(null);
 
             try {
-                const response = await fetch("http://localhost:8081/api/user/folders/all", {
+                const response = await fetch("http://103.145.63.232:8081/api/user/folders/all", {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const FolderList = () => {
 
     const handleDeleteFile = async (folderID, fileID) => {
         try {
-            const response = await fetch(`http://localhost:8081/api/user/folders/${folderID}/files/${fileID}`, {
+            const response = await fetch(`http://103.145.63.232:8081/api/user/folders/${folderID}/files/${fileID}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const FolderList = () => {
             const formData = new FormData();
             formData.append("file", selectedFile);
     
-            const response = await fetch(`http://localhost:8081/api/user/folders/${folderID}/files/${fileID}`, {
+            const response = await fetch(`http://103.145.63.232:8081/api/user/folders/${folderID}/files/${fileID}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -128,7 +128,7 @@ const FolderList = () => {
 
     const handleDeleteFolder = async (folderID) => {
         try {
-            const response = await fetch(`http://localhost:8081/api/user/folders/${folderID}`, {
+            const response = await fetch(`http://103.145.63.232:8081/api/user/folders/${folderID}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -156,7 +156,7 @@ const FolderList = () => {
             const formData = new FormData();
             formData.append("folderName", newFolderName);
 
-            const response = await fetch(`http://localhost:8081/api/user/folders/${folderID}`, {
+            const response = await fetch(`http://103.145.63.232:8081/api/user/folders/${folderID}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -196,7 +196,7 @@ const FolderList = () => {
             const formData = new FormData();
             formData.append("files", selectedFile);
 
-            const response = await fetch(`http://localhost:8081/api/user/folders/${selectedFolder.folderID}/upload`, {
+            const response = await fetch(`http://103.145.63.232:8081/api/user/folders/${selectedFolder.folderID}/upload`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -319,7 +319,7 @@ const FolderList = () => {
                         >
                             <FaTimes size={24} />
                         </button>
-                        <h2 className="mb-4 flex text-2xl font-semibold text-gray-800">
+                        <h2 className="flex mb-4 text-2xl font-semibold text-gray-800">
                             <IoFolderOpenSharp className="mr-2 size-7"/>
                             Files in {selectedFolder.folderName}
                         </h2>
@@ -331,7 +331,7 @@ const FolderList = () => {
                             />
                             <button
                                 onClick={handleUploadFile}
-                                className="flex items-center px-4 py-2 w-1/3  text-white bg-green-500 rounded hover:bg-green-600"
+                                className="flex items-center w-1/3 px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600"
                             >
                                 <FaUpload className="mr-2" />
                                 Upload File

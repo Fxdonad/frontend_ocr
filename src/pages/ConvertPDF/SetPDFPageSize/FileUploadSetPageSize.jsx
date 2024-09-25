@@ -17,7 +17,7 @@ const FileUploadSetPageSize = () => {
         const fetchFileList = async () => {
             const token = sessionStorage.getItem("authToken");
             try {
-                const response = await axios.get('http://localhost:8081/api/auth/user/files/list', {
+                const response = await axios.get('http://103.145.63.232:8081/api/auth/user/files/list', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -71,7 +71,7 @@ const FileUploadSetPageSize = () => {
                 formData.append('file', selectedFile);
 
                 await axios.post(
-                    'http://localhost:8081/api/auth/user/files/upload',
+                    'http://103.145.63.232:8081/api/auth/user/files/upload',
                     formData,
                     {
                         headers: {
@@ -86,7 +86,7 @@ const FileUploadSetPageSize = () => {
 
             // Set page size for the PDF
             const response = await axios.post(
-                `http://localhost:8081/api/pdf/setPageSize?fileName=${encodeURIComponent(fileName)}&pageSizeName=${pageSize}`,
+                `http://103.145.63.232:8081/api/pdf/setPageSize?fileName=${encodeURIComponent(fileName)}&pageSizeName=${pageSize}`,
                 {},
                 {
                     headers: {
@@ -149,7 +149,7 @@ const FileUploadSetPageSize = () => {
                 className="hidden"
                 onChange={handleFileChange}
             />
-            <p className="text-center text-xl font-semibold">Click to select a file or drag and drop here</p>
+            <p className="text-xl font-semibold text-center">Click to select a file or drag and drop here</p>
             <p className="mt-4 text-center">Select a <strong>PDF</strong> file to set its page size</p>
 
             <select
@@ -161,7 +161,7 @@ const FileUploadSetPageSize = () => {
                     setButtonText('Set Page Size'); // Change button text to "Set Page Size"
                     setMessage(`Selected file: ${file.fileName}`);
                 }}
-                className="mt-4 px-4 py-2 border rounded bg-white text-gray-700 focus:outline-none focus:border-blue-500 hover:bg-gray-100"
+                className="px-4 py-2 mt-4 text-gray-700 bg-white border rounded focus:outline-none focus:border-blue-500 hover:bg-gray-100"
                 onClick={(e) => e.stopPropagation()} // Prevent event propagation from triggering file upload
             >
                 <option value="">-- Select a file --</option>
@@ -176,7 +176,7 @@ const FileUploadSetPageSize = () => {
                 <select
                     value={pageSize}
                     onChange={(e) => setPageSize(e.target.value)}
-                    className="mr-2 px-2 py-1 border rounded"
+                    className="px-2 py-1 mr-2 border rounded"
                     onClick={(e) => e.stopPropagation()} // Prevent event propagation
                 >
                     <option value="A4">A4</option>
@@ -186,19 +186,19 @@ const FileUploadSetPageSize = () => {
                 </select>
             </div>
             {message && (
-                <div className="mt-4 text-center text-green-600 font-semibold">
+                <div className="mt-4 font-semibold text-center text-green-600">
                     {message}
                 </div>
             )}
             <button
                 onClick={handleFileUploadOrSetPageSize}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+                className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-500 rounded hover:bg-blue-700"
             >
                 {buttonText}
             </button>
             <div className="mt-2 text-sm text-center">
                 Supported formats:
-                <span className="inline-block bg-red-500 text-white px-2 py-1 rounded ml-1 transition duration-300 hover:bg-red-600">PDF</span>
+                <span className="inline-block px-2 py-1 ml-1 text-white transition duration-300 bg-red-500 rounded hover:bg-red-600">PDF</span>
             </div>
         </div>
     );

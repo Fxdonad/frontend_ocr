@@ -29,7 +29,7 @@ const ViewUserDetail = () => {
                 throw new Error("No token found");
             }
 
-            const response = await axios.get(`http://localhost:8081/api/admin/users/${userID}`, {
+            const response = await axios.get(`http://103.145.63.232:8081/api/admin/users/${userID}`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ const ViewUserDetail = () => {
             }
 
             const response = await axios.put(
-                `http://localhost:8081/api/admin/users/${userID}`,
+                `http://103.145.63.232:8081/api/admin/users/${userID}`,
                 {
                     email,
                     currentGP: parseInt(currentGP, 10),

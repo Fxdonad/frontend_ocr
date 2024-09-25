@@ -41,7 +41,7 @@ const FolderUpload = ({ onFolderUploaded }) => {
         const token = sessionStorage.getItem("authToken");
 
         try {
-            const response = await fetch("http://localhost:8081/api/user/folders/upload", {
+            const response = await fetch("http://103.145.63.232:8081/api/user/folders/upload", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
