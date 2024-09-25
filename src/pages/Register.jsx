@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Img from "../assets/QuickScan.png";
 
 const Register = () => {
     // State để quản lý các giá trị của form
@@ -163,7 +164,7 @@ const Register = () => {
             </div>
 
             {/* Right Side: Image with Information */}
-            <div className="relative hidden w-full bg-center bg-cover sm:flex sm:w-1/2" style={{ backgroundImage: "url('/src/assets/QuickScan.png')" }}>
+            <div className="relative hidden w-full bg-center bg-cover sm:flex sm:w-1/2" style={{ backgroundImage: `url(${Img})` }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-white">
                     <h2 className="mb-4 text-4xl font-extrabold">Tham gia dịch vụ OCR của chúng tôi</h2>

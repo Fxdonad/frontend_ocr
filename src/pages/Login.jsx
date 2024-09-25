@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useNavigate } from "react-router-dom";
+import Img from "../assets/QuickScan.png";
 
 const Login = () => {
     // State để quản lý các giá trị của form
@@ -49,7 +50,7 @@ const Login = () => {
             {/* Left Side: Image with Information */}
             <div
                 className="relative hidden w-full bg-center bg-cover md:w-1/2 md:block"
-                style={{ backgroundImage: "url('/src/assets/QuickScan.png')" }}
+                style={{ backgroundImage: `url(${Img})` }}
             >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-white">

@@ -1,4 +1,5 @@
 import React from "react";
+import Img1 from "../assets/3GP_LOGO.png";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col items-center mb-8 sm:flex sm:flex-row sm:justify-between">
           <div className="flex flex-col items-center space-y-2 sm:space-x-4 sm:flex sm:flex-row">
             <img
-              src="/src/assets/3GP_LOGO.png" // Replace with your actual logo path
+              src={Img1} // Replace with your actual logo path
               alt="Logo"
               className="w-11 h-14"
             />
