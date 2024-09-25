@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RiDashboard2Line } from "react-icons/ri";
 import { FaUsersViewfinder, FaQuestion } from "react-icons/fa6";
 import { MdOutlineDocumentScanner } from "react-icons/md";
+import Img from "../assets/3GP_LOGO.png";
 
 import {
   ToolIcon,
@@ -87,7 +88,7 @@ const Header = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <img
-            src="/src/assets/3GP_LOGO.png" // Replace this with your actual logo path
+            src={Img}// Replace this with your actual logo path
             alt="Logo"
             className="w-8 h-10 mr-2"
           />
